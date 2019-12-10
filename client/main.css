@@ -1,0 +1,9 @@
+* {
+  font-family: sans-serif;
+}
+#code {
+  height: 180px;
+  width: 400px;
+  resize: none;
+  font-size: 1rem;
+}
