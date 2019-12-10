@@ -1,14 +1,17 @@
 import WebSocket from 'ws'
 import vm from 'vm'
-
+import jsdom from 'jsdom'
+const { JSDOM } = jsdom
 const wss = new WebSocket.Server({ port: 8080 })
 
+// console.log(new JSDOM(''))
 wss.on('connection', ws => {
   ws.on('message', message => {
     console.log(`Received a message: ${message}`)
     try {
       const script = new vm.Script(message)
-      // script.runInContext(vm.createContext({}))
+      const { window } = new JSDOM('<!DOCTYPE html><p></p>')
+      script.runInContext(vm.createContext(window))
       ws.send('Saved')
     }
     catch(e) {
