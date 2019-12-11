@@ -17,13 +17,12 @@ function connect(url) {
     }
 
     connection.onerror = (error) => {
-        console.log(`Error: ${JSON.stringify(error, ['message', 'arguments'], 2)}`)
         connection.close()
     }
 
     connection.onclose = (event) => {
-        console.log(`Socket closed because of the following reasons: ${event.reason}`)
-        RECONNECT_DELAY = RECONNECT_DELAY * 2
+        RECONNECT_DELAY = RECONNECT_DELAY * 1.5
+        console.log(`Socket closed, retrying in ${(RECONNECT_DELAY / 1000).toFixed(1) } seconds`)
         setTimeout(() => {
             connect(url)
         }, RECONNECT_DELAY)
