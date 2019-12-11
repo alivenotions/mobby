@@ -1,6 +1,6 @@
-const codeTextArea = document.getElementById('code')
+const jsCodeTextArea = document.getElementById('js')
 const info = document.getElementById('info')
-code.focus()
+jsCodeTextArea.focus()
 const URL = 'ws://localhost:8080'
 let RECONNECT_DELAY = 200
 let ws
@@ -8,7 +8,7 @@ function connect(url) {
     const connection = new WebSocket(URL)
     connection.onopen = () => {
         console.log('Connection open')
-        connection.send(codeTextArea.value)
+        connection.send(jsCodeTextArea.value)
         RECONNECT_DELAY = 200
     }
 
@@ -36,10 +36,10 @@ connect(URL)
 
 let typingIdleTimer
 let DELAY = 1400
-codeTextArea.addEventListener('keyup', (e) => {
+jsCodeTextArea.addEventListener('keyup', (e) => {
   if (typingIdleTimer) { clearTimeout(typingIdleTimer) }
-  typingIdleTimer = setTimeout(() => ws.send(codeTextArea.value), DELAY)
+  typingIdleTimer = setTimeout(() => ws.send(jsCodeTextArea.value), DELAY)
 })
-codeTextArea.addEventListener('keydown', () => {
+jsCodeTextArea.addEventListener('keydown', () => {
   if (typingIdleTimer) { clearTimeout(typingIdleTimer) }
 })
