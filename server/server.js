@@ -4,7 +4,6 @@ import jsdom from 'jsdom'
 const { JSDOM } = jsdom
 const wss = new WebSocket.Server({ port: 8080 })
 
-// console.log(new JSDOM(''))
 wss.on('connection', ws => {
   ws.on('message', message => {
     console.log(`Received a message: ${message}`)
