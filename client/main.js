@@ -23,7 +23,7 @@ Array.from(codeAreas).forEach(codeArea => codeArea.addEventListener('keydown', (
 }))
 
 function generateOutput(target, html, css, js) {
-  target.document.head = `<style>${css}</style><script>${js}</script>`
+  target.document.head.innerHTML = `<style>${css}</style><script>${js}</script>`
   target.document.body.innerHTML = `${html}`
 }
 
