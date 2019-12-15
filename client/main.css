@@ -5,7 +5,7 @@ html, body {
   --background: #2b303a;
   --logo: #d64933;
   --primary: #d8dad3;
-  --secondary: #f1f2eb;
+  --secondary: #cbc5ea;
   --tertiary: #363d49;
   background-color: var(--background);
   display: flex;
@@ -17,7 +17,7 @@ html, body {
 .logo {
   width: 4%;
   background: #071013;
-  box-shadow: -2px 0 #00ff00 inset;
+  box-shadow: -2px 0 #00ffff inset;
 }
 
 .logo h1 {
@@ -57,8 +57,16 @@ html, body {
 
 p {
   color: var(--primary);
-  margin: 10px;
-  font-size: 0.8rem;
+  margin: 7px;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  background-color: #444c5b;
+  display: inline-block;
+}
+
+p.info {
+  display: none;
 }
 
 .code {
@@ -70,7 +78,7 @@ p {
   resize: none;
   font-size: 0.9rem;
   word-spacing: -3.5px;
-  caret-color: var(--secondary);
+  caret-color: var(--logo);
   color: var(--secondary);
   outline: none;
   background-color: var(--background);
