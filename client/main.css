@@ -7,17 +7,17 @@ html, body {
   --primary: #d8dad3;
   --secondary: #f1f2eb;
   --tertiary: #363d49;
-  --decor: #b5ffe9;
-  --a: #071013;
-  --b: #071013;
   background-color: var(--background);
   display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .logo {
-  width: 10%;
-  background: var(--a);
-  box-shadow: -1px -1px aqua inset;
+  width: 4%;
+  background: #071013;
+  box-shadow: -2px 0 #00ff00 inset;
 }
 
 .logo h1 {
@@ -29,16 +29,22 @@ html, body {
   content: '.';
   padding-left: 2px;
   font-size: 2.3rem;
-  color: var(--decor);
+  color: #b5ffe9;
+}
+
+.main {
+  width: 96%;
+  height: 100%;
 }
 
 .row {
   display: flex;
-  width: 90%;
+  height: 50%;
 }
 
 .box {
   width: 50%;
+  height: 100%;
 }
 
 .row .box:first-child {
@@ -56,7 +62,7 @@ p {
 }
 
 .code {
-  height: 99vh;
+  height: 40vh;
   font-family: monospace;
   margin: 0 10px;
   width: 98%;
