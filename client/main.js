@@ -1,6 +1,6 @@
 const codeAreas = document.getElementsByClassName('code')
 const info = document.getElementById('info')
-const output = window.frames[0].window
+const output = document.getElementById('output').contentWindow.document
 
 codeAreas[0].focus()
 
@@ -23,8 +23,9 @@ Array.from(codeAreas).forEach(codeArea => codeArea.addEventListener('keydown', (
 }))
 
 function generateOutput(target, html, css, js) {
-  target.document.head.innerHTML = `<style>${css}</style><script>${js}</script>`
-  target.document.body.innerHTML = `${html}`
+  target.open()
+  target.writeln(`${html}<style>${css}</style><script>${js}</script>`)
+  target.close()
 }
 
 function connect(url) {
